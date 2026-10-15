@@ -1,10 +1,10 @@
-# Vogueora Apparel — Inventory Management System (Pertemuan 5: Laravel Fundamental)
+Vogueora Apparel — Inventory Management System (Pertemuan 5: Laravel Fundamental)
 
 Selamat datang di repositori implementasi **Vogueora Apparel Inventory Management System** yang telah dimigrasikan dan diintegrasikan secara menyeluruh ke dalam framework **Laravel 12 (PHP 8.2)** sesuai dengan seluruh capaian pembelajaran, acceptance criteria, dan instruksi pada **Modul Web 5 (Pertemuan 5: Laravel Fundamental)**.
 
 ---
 
-## 📌 Ringkasan Integrasi: Dari P4 (PHP Native) ke P5 (Laravel)
+Ringkasan Integrasi: Dari P4 (PHP Native) ke P5 (Laravel)
 
 Sesuai dengan arahan **Slide 2 & 35 Modul Web 5**:
 > *"Pertemuan 5 tidak membuat masalah bisnis baru, melainkan memindahkan dan merapikan project P4 ke Laravel. Konsep database relasional dan aturan bisnis (business logic) tetap dipertahankan secara utuh. Laravel menjadi framework untuk mengorganisasi aplikasi dengan arsitektur MVC yang bersih."*
@@ -23,7 +23,7 @@ Sesuai dengan arahan **Slide 2 & 35 Modul Web 5**:
 
 ---
 
-## 🏛️ Arsitektur MVC & Siklus Alur Data (Request-Response Lifecycle)
+Arsitektur MVC & Siklus Alur Data (Request-Response Lifecycle)
 
 Aplikasi dibangun dengan mematuhi alur baku arsitektur Laravel (Slide 10 & 47):
 
@@ -60,7 +60,7 @@ Aplikasi dibangun dengan mematuhi alur baku arsitektur Laravel (Slide 10 & 47):
 [ HTTP Response dikirim ke Browser Pengguna ]
 ```
 
-### Demonstrasi Alur Nyata (Slide 48):
+Demonstrasi Alur Nyata (Slide 48):
 1. **Membuka Form:** Pengguna mengakses `GET /products/create` &rarr; Route memanggil `ProductController@create` &rarr; Model `Category` dan `Supplier` diambil &rarr; Blade `products/create.blade.php` dirender.
 2. **Validasi Input:** Form dikirim melalui `POST /products` &rarr; `ProductController@store` menjalankan `$request->validate()`:
    - Jika ada kolom kosong/tidak valid (misal: SKU sudah ada atau stok bernilai negatif) &rarr; Sistem otomatis mengembalikan ke halaman sebelumnya (`redirect back`) disertai pesan error spesifik via directive `@error` dan mempertahankan isian via `old()`.
@@ -70,7 +70,7 @@ Aplikasi dibangun dengan mematuhi alur baku arsitektur Laravel (Slide 10 & 47):
 
 ---
 
-## 📦 Skema Tabel & Relasi Eloquent
+Skema Tabel & Relasi Eloquent
 
 Struktur database dibangun di atas **7 Tabel Relasional InnoDB** dengan integritas data ketat:
 
@@ -99,7 +99,7 @@ Struktur database dibangun di atas **7 Tabel Relasional InnoDB** dengan integrit
                                        └───────────────────┘
 ```
 
-### Pemetaan Model Eloquent:
+Pemetaan Model Eloquent:
 1. **`User` <-> `UserProfile` (One-to-One — Slide 5 & 6):**
    - `$user->profile` (`hasOne`)
    - `$profile->user` (`belongsTo`)
@@ -116,7 +116,7 @@ Struktur database dibangun di atas **7 Tabel Relasional InnoDB** dengan integrit
 
 ---
 
-## 🛡️ Aturan Bisnis & Integritas Relasional (Business Rules)
+Aturan Bisnis & Integritas Relasional (Business Rules)
 
 Aplikasi mempertahankan 100% aturan bisnis P4 tanpa ada yang tereduksi:
 1. **Transaksi Barang Keluar (Atomic Validation & Rollback):**
@@ -141,7 +141,7 @@ Aplikasi mempertahankan 100% aturan bisnis P4 tanpa ada yang tereduksi:
 
 ---
 
-## 🔑 Kredensial Masuk Sistem & Fitur Quick-Fill Demo
+Kredensial Masuk Sistem & Fitur Quick-Fill Demo
 
 Pada halaman masuk (`/login`), telah disematkan fitur **Tombol Isi Cepat Demo (Quick Fill)**:
 
@@ -152,7 +152,7 @@ Pada halaman masuk (`/login`), telah disematkan fitur **Tombol Isi Cepat Demo (Q
 
 ---
 
-## 🚀 Panduan Instalasi & Menjalankan di XAMPP
+Panduan Instalasi & Menjalankan di XAMPP
 
 ### Langkah 1: Pastikan Apache & MySQL Berjalan di XAMPP
 Buka **XAMPP Control Panel**, lalu klik tombol **Start** pada modul:
@@ -170,7 +170,7 @@ C:\xampp\mysql\bin\mysql.exe -u root -e "CREATE DATABASE IF NOT EXISTS inventory
 C:\xampp\php\php.exe artisan migrate:fresh --seed
 ```
 
-### Langkah 3: Buka Aplikasi di Browser
+Langkah 3: Buka Aplikasi di Browser
 Aplikasi mendukung 3 cara akses fleksibel:
 1. **Via XAMPP Apache Langsung:**
    - Akses: **`http://localhost/inventory_laravel/`** atau **`http://localhost/inventory_laravel/public/`**
@@ -182,7 +182,7 @@ Aplikasi mendukung 3 cara akses fleksibel:
 
 ---
 
-## ✅ Pengujian Otomatis (Automated Acceptance Suite)
+Pengujian Otomatis (Automated Acceptance Suite)
 
 Proyek ini telah dilengkapi dengan script pengujian otomatis mandiri `verify_p5.php` yang memverifikasi seluruh acceptance criteria secara komprehensif.
 
@@ -191,7 +191,7 @@ Jalankan perintah berikut pada terminal:
 C:\xampp\php\php.exe verify_p5.php
 ```
 
-### Bukti Eksekusi Pengujian Otomatis:
+Bukti Eksekusi Pengujian Otomatis:
 ```text
 ====================================================================
  VOGUEORA APPAREL • INVENTORY MANAGEMENT SYSTEM (PERTEMUAN 5)
@@ -242,7 +242,7 @@ C:\xampp\php\php.exe verify_p5.php
 
 ---
 
-## 📋 Checklist Kesiapan Modul Pertemuan 5 (Slide 46)
+Checklist Kesiapan Modul Pertemuan 5 (Slide 46)
 
 - [x] Project Laravel terkonfigurasi dan dapat dijalankan.
 - [x] `.env` terhubung ke database MySQL `inventory_db` dengan benar.
